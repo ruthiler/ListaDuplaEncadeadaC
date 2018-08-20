@@ -14,7 +14,7 @@ int main(void) {
     char continuar;
 
 
-	  printf("Carregando...\n");
+	printf("Carregando...\n");
     carregar_do_arquivo(&lista, "aps.txt");
 
     printf("Ordenando...\n");
@@ -28,7 +28,6 @@ int main(void) {
 
 
     do {
-
        do{
             printf("DIGITE O NÚMERO DO CPF PARA PESQUISAR E EXCLUIR DA LISTA.\n\n");
             printf("Digite o CPF: ");
@@ -41,12 +40,10 @@ int main(void) {
             }else{
                 printf("\nDigite um número válido.\n");
             }
-
        }while (busca_cpf==0);
 
        printf("\nPressione 0 para sair ou qualquer tecla para continuar:  ");
        scanf("%s", &continuar);
-
        system("clear");
 
   }while (continuar!='0');    // Busca o CPF digitado pelo usuario
@@ -63,7 +60,7 @@ int main(void) {
 
 	printf("\nPressione ENTER...\n");
 	getchar();
-  getchar();
+	getchar();
 
 	exit(EXIT_SUCCESS);
 }

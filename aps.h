@@ -34,6 +34,7 @@ void clean(noh * lista) {
         free(clear);
     }
     printf("Concluindo limpeza...\n");
+
     if(atual)
         free(atual);
 
@@ -41,7 +42,6 @@ void clean(noh * lista) {
 }
 
 noh * inserir_no_inicio(noh ** lista, long long cpf) {
-
     noh * cabeca = *lista;
     noh * n = novo_noh(cpf);
 
@@ -85,12 +85,10 @@ noh * carregar_do_arquivo(noh ** lista, char * nome_arquivo) {
 }
 
 int cpf_retirado () {
-
     return retirado;
 }
 
 int tamanho_lista(noh * lista) {
-
     noh*atual=lista;
     int tam=0;
 
@@ -103,14 +101,12 @@ int tamanho_lista(noh * lista) {
 
 
 int buscar(long long cpf) {       //FAZ A BUSCA BINARIA NO VETOR
-
     int inicio=0;
     int fim=MILHAO-1;
     int meio=0;
 
     while(inicio<=fim) {
         meio=(inicio+fim)/2;
-
         if(cpf<vetor[meio]->cpf) {
             fim=meio-1;
         }else{
@@ -126,16 +122,12 @@ int buscar(long long cpf) {       //FAZ A BUSCA BINARIA NO VETOR
 }
 
 void removelist (noh ** lista, long long cpf) {    //Remove o CPF da lista
-
     int pos;
-
     if(*lista==NULL) {                   // Verifica se a lista nao esta vazia. Se estiver para a função e retorna.
         printf("A lista já esta VAZIA. Pressione '0' (zero) para sair.\n\n");
         return;
     }
-
     pos=buscar(cpf);      // Chama a funcao buscar e se encontrar retorna o valor para retirar da lista
-
     if(pos==-1) {                   // Verifica se a função buscar encontrou, se nao encontrou para a função e retorna.
         printf("> CPF nao encontrado ou ja retirado da lista.\n\n");
         return;
@@ -169,18 +161,14 @@ void removelist (noh ** lista, long long cpf) {    //Remove o CPF da lista
 
 
 void intercala(int inicio, int meio, int fim) {  //Junta e ordena os elementos separados no mergesort
-
     int i,j,k;
-
     noh ** aux;
     aux = (noh**)calloc(fim-inicio+1,sizeof(noh));
-
     i = inicio;
     j = meio+1;
     k = 0;
 
     while( i<=meio && j<=fim ) {
-
         if ( vetor[i]->cpf <= vetor[j]->cpf ) {
             aux[k] = vetor[i];
             i++;
@@ -212,22 +200,16 @@ void intercala(int inicio, int meio, int fim) {  //Junta e ordena os elementos s
 }
 
 void mergesort(int inicio,int fim) {
-
     int meio;
-
     if (inicio < fim){
         meio = (inicio+fim)/2;
         mergesort(inicio, meio);
         mergesort(meio+1, fim);
         intercala(inicio, meio, fim);
     }
-
     return;
 }
-
 
 void ordenar() {
     mergesort(0, MILHAO-1);
 }
-
-
